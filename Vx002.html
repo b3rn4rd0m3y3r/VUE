@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>'v-bind' Image Source Example</title>
+  <style>
+    #app {
+      border: dashed black 1px;
+      width: 250px;
+      padding: 0 10px 10px 10px;
+    }
+
+    img {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<h1>'v-bind' Image Source Example</h1>
+
+<div id="app">
+  <p>O navegador preenche o atributo 'src' com o valor declarado na instância do Vue através de 'v-bind'.</p>
+  <img v-bind:src="url">
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const app = Vue.createApp({
+   data() {
+    return {
+      url: "img1.jpg"
+    }
+   }
+  })
+  app.mount('#app');
+</script>
+
+</body>
+</html>

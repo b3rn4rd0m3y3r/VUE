@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vx001</title>
+  <style>
+    #app {
+      display: inline-block;
+      padding: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Vue Example</h1>
+
+<p>A mensagem colocada em {{ message }} é extraída da função "data" instanciada por "app".</p>
+
+<div id="app">
+	{{ message }}
+
+</div>
+
+<script src="vue.js"></script>
+
+<script>
+  const app = Vue.createApp({
+	data() {
+		return {
+			message: 'Ola mundo'
+			}
+		}
+	})
+  
+  app.mount('#app')
+
+</script>
+
+</body>
+</html>

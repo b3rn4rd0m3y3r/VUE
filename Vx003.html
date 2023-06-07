@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vx003</title>
+  <style>
+    #app {
+      border: dashed blue 1px;
+      width: 250px;
+      padding: 0 10px 10px 10px;
+    }
+	.azul {color: blue; font-family: Arial;}
+    img {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<h1>'v-bind' Exemplo com imagem e Link</h1>
+
+<div id="app">
+  <h1 v-bind:class="az">{{titulo}}</h1>
+  <p>O navegador preenche o atributo 'href' com o valor declarado na instância do Vue através de 'v-bind'.</p>
+  <a v-bind:href="url">GOOGLE</a>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const app = Vue.createApp({
+   data() {
+    return {
+      az: "azul",
+      titulo: "V-BIND",
+      url: "http://www.google.com/"
+    }
+   }
+  })
+  app.mount('#app');
+</script>
+
+</body>
+</html>

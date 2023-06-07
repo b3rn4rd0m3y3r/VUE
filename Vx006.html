@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vx001</title>
+  <style>
+    #app {
+      display: inline-block;
+      padding: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Vue Example</h1>
+
+<p>Lista de contatos</p>
+
+<div id="app">
+	<ul>
+		<li v-for="contato in contatos">
+			{{ contato.nome }}
+		</li>
+	</ul>
+</div>
+
+<script src="vue.js"></script>
+
+<script>
+  const app = Vue.createApp({
+	data() {
+		return {
+			contatos:[
+				{nome: 'Abelardo'},
+				{nome: 'Carlos'},
+				{nome: 'Naum'},
+				{nome: 'Zélia'}
+				]
+			}
+		}
+	})
+  
+  app.mount('#app')
+
+</script>
+
+</body>
+</html>
