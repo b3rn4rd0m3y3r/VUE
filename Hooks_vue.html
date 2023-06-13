@@ -1,0 +1,64 @@
+<html>
+	<head>
+	<title>SLD 01</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<style>
+		CAPTION {font-family: Arial;font-size:18px;padding-bottom: 50px;}
+		DIV.fig {float:left;font-size:72px;font-family: Arial;}
+		LABEL {font-family: Arial;font-size:12px;}
+	</style>
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript">
+	function init(){
+		// Comando 1
+		var data = { 
+			negrito: 'bold',
+			var1: 'Exibindo variável'
+			};
+		// Comando 2
+		var v1 = new Vue({ 
+			el: '#app', 
+			data: data,
+			beforeCreate: function () {
+				// "this" aponta para a instância
+				 console.log('Hook: beforeCreate');
+				},			
+			created: function () {
+				// "this" aponta para a instância
+				 console.log('Hook: created');
+				},
+			beforeMount: function () {
+				// "this" aponta para a instância
+				 console.log('Hook: beforeMount');
+				},
+			mounted: function () {
+				// "this" aponta para a instância
+				 console.log('Hook: created');
+				},
+			beforeUpdate: function () {
+				// "this" aponta para a instância
+				 console.log('Hook: beforeUpdate');
+				},
+			updated: function () {
+				// "this" aponta para a instância
+				 //setTimeout(this.viraPagina, 1000);
+				 console.log('Hook: updated');
+				},
+			beforeDestroy: function () {
+				// "this" aponta para a instância
+				 console.log('Hook: beforeDestroy');
+				},
+			destroyed: function () {
+				// "this" aponta para a instância
+				 console.log('Hook: destroyed');
+				}
+			});
+		}
+	</script>
+	</head>
+	<body onload="init();">
+		<div id="app" class="container" align="center">
+			{{ var1 }} muda para <input id="variavel" v-model="var1">
+		</div>
+	</body>
+</html>
