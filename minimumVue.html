@@ -1,0 +1,55 @@
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script>
+(function( window, undefined ) {
+
+var
+
+	// Usa o documento correto de acordo com a chamada (sandbox)
+	document = window.document,
+	mVue = function( actionContext, arguments ) {
+		// retorna objeto pelo construtor
+		return new mVue.fn.mvue( actionContext, arguments );
+		}
+	mVue.fn = mVue.prototype = {
+		constructor: mVue,
+		mvue: function( actionContext, arguments ) {
+				this.contexto = actionContext;
+				if( arguments[0] ){
+					this.array = arguments[0];
+					} else {
+					this.array = null;
+					}
+				if( arguments[1] ){
+					this.array = arguments[1];
+					} else {
+					this.array = null;
+					}
+				return this;
+			},
+		// Acha os arrays e variáveis do contexto
+		compile: function(){
+			
+			},
+		size: function() {
+			return this.length;
+			}
+		}
+	
+window.mVue = mVue;
+mVue.fn.mvue.prototype = mVue.fn;
+
+})( window );
+function init(){
+	var meusItens = [
+		{descri:"Banana",valor:10},
+		{descri:"Cebola",valor:15}
+		];
+	var v1 = new mVue("#app",meusItens);
+	console.log(p1);
+	}
+</script>
+<body onload="init();">
+	<div id="app" data-array-items="meusItens" data-soma-valor="Soma">
+		
+	</div>
+</body>
