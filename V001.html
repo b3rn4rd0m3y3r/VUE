@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>V001</title>
+	<style>
+		#app {
+		  display: inline-block;
+		  padding: 14px;
+		}
+	</style>
+	<script src="vue2714.js"></script>
+</head>
+<body>
+
+<h1>Vue 2 Example</h1>
+
+<p>A mensagem colocada em {{ message }} é extraída da variável "data"
+	instanciada em forma de proxy por "app".</p>
+
+<div id="app">
+	{{ message }}
+</div>
+
+<script>
+const app = new Vue({
+		el: '#app',
+		data: {
+			message: 'Ola mundo grande'
+			}
+	})
+ 
+
+</script>
+
+</body>
+</html>
