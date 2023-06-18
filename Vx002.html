@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>'v-bind' Image Source Example</title>
+  <title>Vx002</title>
   <style>
     #app {
       border: dashed black 1px;
@@ -13,27 +13,28 @@
       width: 100%;
     }
   </style>
-</head>
-<body>
-
-<h1>'v-bind' Image Source Example</h1>
-
-<div id="app">
-  <p>O navegador preenche o atributo 'src' com o valor declarado na inst‚ncia do Vue atravÈs de 'v-bind'.</p>
-  <img v-bind:src="url">
-</div>
-
-<script src="vue.js"></script>
+<script src="vue334.js"></script>
 <script>
   const app = Vue.createApp({
-   data() {
+	data() {
     return {
-      url: "img1.jpg"
-    }
+		url: "img1.png"
+		}
    }
   })
-  app.mount('#app');
+  function init(){
+	app.mount('#app');
+	}
 </script>
+</head>
+<body onload="init();">
+<h1>Vue 3 Example</h1>
+<h1>Exemplo 'v-bind' - Imagem src</h1>
+
+<div id="app">
+  <p>O navegador preenche o atributo 'src' com o valor declarado na inst√¢ncia do Vue atrav√©s de 'v-bind'.</p>
+  <img v-bind:src="url">
+</div>
 
 </body>
 </html>

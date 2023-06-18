@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	  <title>Vx003</title>
-	  <style>
+  <title>V003</title>
+	<style>
 		#app {
 		  border: dashed blue 1px;
 		  width: 250px;
@@ -12,22 +12,20 @@
 		img {
 		  width: 100%;
 		}
-	  </style>
-	<script src="vue334.js"></script>
+	</style>
+	<script src="vue2714.js"></script>
 	<script>
-	  const app = Vue.createApp({
-	   data() {
-		return {
-		  az: "azul",
-		  img: "img1.png",
-		  titulo: "V-BIND",
-		  url: "http://www.google.com/"
-		}
-	   }
-	  })
-	  function init(){
-		app.mount('#app');
-		}
+	function init(){
+		const app = new Vue({
+			el: '#app',
+			data: {
+				az: "azul",
+				img: "img1.png",
+				titulo: "V-BIND",
+				url: "http://www.google.com/"
+				}
+		  })
+	}
 	</script>
 </head>
 <body onload="init();">
