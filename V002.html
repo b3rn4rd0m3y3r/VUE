@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>V002</title>
+  <style>
+    #app {
+      border: dashed black 1px;
+      width: 250px;
+      padding: 0 10px 10px 10px;
+    }
+
+    img {
+      width: 100%;
+    }
+  </style>
+<script src="vue2714.js"></script>
+<script>
+
+		function init(){
+			const app = new Vue({
+				el: '#app',
+				data: {
+					url: "img1.png"
+					}
+				})  
+			}
+</script>
+</head>
+<body onload="init();">
+	<h1>Vue 2 Example</h1>
+	<h1>Exemplo 'v-bind' - Imagem src</h1>
+
+	<div id="app">
+		<p>O navegador preenche o atributo 'src' com o valor declarado na instância do Vue através de 'v-bind'.</p>
+		<img v-bind:src="url">
+	</div>
+</body>
+</html>
