@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Vx004</title>
+  <title>V004</title>
   <style>
     #app {
       display: inline-block;
       padding: 14px;
     }
   </style>
-<script src="vue334.js"></script>
+<script src="vue2714.js"></script>
 
 <script>
-const app = Vue.createApp({
-	data() {
-		return {
-			message: "Hello World!"
-			}
-		}
-  })
+
   function init(){
-	  app.mount('#app');
+		const app = new Vue({
+			el: '#app',
+			data: {
+						message: "Hello World!"
+					}
+			})
 	  }
 </script>
 </head>
 <body onload="init();">
 
-<h1>Vue 3 Exemplo</h1>
+<h1>Vue 2 Exemplo</h1>
 
 <div id="app">
 	<table>
