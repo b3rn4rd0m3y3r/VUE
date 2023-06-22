@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>V004b</title>
+		<style>
+		#app {
+			display: inline-block;
+			padding: 14px;
+			}
+		</style>
+		<script src="vue2714.js"></script>
+		<script>
+		function init(){  
+			const app = new Vue({
+				el: "#app",
+				data: {
+					fatora: 0,
+					fatorb: 0,
+					resultado: 0
+					},
+				computed: {
+					soma: function() {
+						return parseFloat(this.fatora)+parseFloat(this.fatorb); 
+						}
+					}
+				})
+			}
+
+		</script>
+	</head>
+<body onload="init();">
+
+	<h1>Vue Exemplo</h1>
+
+	<div id="app">
+		A: <input v-model="fatora">
+		B: <input v-model="fatorb">
+		Soma: {{ soma }}
+		Produto: {{ parseFloat(fatora) * parseFloat(fatorb) }}
+	 </div>
+
+
+
+
+
+</body>
+</html>
