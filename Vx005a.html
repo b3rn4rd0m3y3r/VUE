@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vx005a</title>
+  <style>
+    #app {
+      display: inline-block;
+      padding: 14px;
+      font-family: Heebo;
+      font-size: 24px;
+    }
+  </style>
+<script src="vue334.js"></script>
+
+<script>
+  const app = Vue.createApp({
+	data() {
+		return {
+		a: ( 0 === 0 ),
+		b: true,
+		message: "Usando exibição condicional"
+		}
+	}
+  })
+function init(){  
+	app.mount('#app');
+	}
+
+</script>
+</head>
+<body onload="init();">
+
+<h1>Exibição condicional</h1>
+
+<div id="app">
+	{{ message }}
+	<p v-if="a">Mensagem caso "a" verdadeiro.</p>
+
+	<p v-if="b">Mensagem para o caso de "b" verdadeiro.</p>
+	
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vx005c</title>
+  <style>
+#app {
+	display: inline-block;
+	font-family: Heebo;
+	font-size: 24px;
+	padding: 14px;
+	}
+	P.vd { color: green; }
+	P.vm { color: red; }
+  </style>
+</head>
+<body>
+
+<h1>Exibição condicional</h1>
+
+<div id="app">
+	{{ message }}
+	A: <input v-model="fatora">
+	B: <input v-model="fatorb">
+	Soma: {{ soma }}
+	<p class="vd" v-if="soma < 51">Mensagem caso "soma" seja menor que ou 50.</p>
+
+	<p class="vm" v-else>Mensagem para o caso da soma maior que 50.</p>
+	
+</div>
+
+<script src="vue334.js"></script>
+
+<script>
+  const app = Vue.createApp({
+	data() {
+		return {
+			a: ( 0 === 1 ),
+			b: true,
+			fatora: 0,
+			fatorb: 0,			
+			message: "Usando exibição condicional"
+			}
+		},
+	computed: {
+		soma: function() {
+			return parseFloat(this.fatora)+parseFloat(this.fatorb); 
+			},
+		}
+	})
+  
+  app.mount('#app')
+
+</script>
+
+</body>
+</html>
