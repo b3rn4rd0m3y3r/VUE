@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Vx005b</title>
+  <meta charset="utf-8">
   <style>
     #app {
       display: inline-block;
@@ -10,10 +11,25 @@
       padding: 14px;
     }
   </style>
+<script src="vue334.js"></script>
+<script>
+  const app = Vue.createApp({
+	data() {
+		return {
+		a: ( 0 === 0 ),
+		b: true,
+		message: "Usando exibiÃ§Ã£o condicional"
+		}
+	}
+  })
+  function init(){
+	app.mount('#app');
+	}
+</script>
 </head>
-<body>
+<body onload="init();">
 
-<h1>Exibição condicional</h1>
+<h1>ExibiÃ§Ã£o condicional</h1>
 
 <div id="app">
 	{{ message }}
@@ -23,22 +39,7 @@
 	
 </div>
 
-<script src="vue334.js"></script>
 
-<script>
-  const app = Vue.createApp({
-	data() {
-		return {
-		a: ( 0 === 1 ),
-		b: true,
-		message: "Usando exibição condicional"
-		}
-	}
-  })
-  
-  app.mount('#app')
-
-</script>
 
 </body>
 </html>
