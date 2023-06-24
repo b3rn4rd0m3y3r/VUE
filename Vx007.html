@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vx007</title>
+  <style>
+    #app {
+      display: inline-block;
+      padding: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Eventos</h1>
+
+<p>A mensagem colocada em {{ message }} é extraída da função "data" instanciada por "app".</p>
+
+<div id="app">
+	
+	{{ message }}
+	<button v-on:click="onclick">Me clique</button>
+	<button @click="onclick">Me clique-me</button>
+</div>
+
+<script src="vue.js"></script>
+
+<script>
+  const app = Vue.createApp({
+	data() {
+		return {
+			message: 'Ola mundo'
+			}
+		},
+	methods: {
+		onclick() {
+				this.message = 'Mudou'
+			},
+		},
+	})
+  
+  app.mount('#app')
+
+</script>
+
+</body>
+</html>
