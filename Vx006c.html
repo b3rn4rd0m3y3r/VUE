@@ -1,0 +1,55 @@
+<html>
+<head>
+	<title>Vx006c</title>
+	 <meta charset="utf-8">
+	<style>
+    #app {
+      display: inline-block;
+	  font-size: 22px;
+	  font-family: Heebo;
+      padding: 14px;
+    }
+	SPAN.fnd {background-color: yellow;display: block;width: 300px;}
+	</style>
+	<script src="vue334.js"></script>
+
+	<script>
+	  
+		  const app = Vue.createApp({
+			data() {
+					return {
+						contatos:[
+							{nome: 'Abelardo'},
+							{nome: 'Carlos'},
+							{nome: 'Naum'},
+							{nome: 'Zélia'}
+							]
+						}
+					}
+			})
+	function init(){	
+		app.mount('#app')
+		}
+	</script>
+</head>
+<body onload="init();">
+
+<h1>Vue Exemplo v-for</h1>
+
+<p>Lista de contatos</p>
+
+<div id="app">
+	<ul>
+		<li v-for="(contato, key) in contatos">
+			<span class="fnd" v-if=" parseInt(key) % 2 == 1 ">
+			{{ key + " : " + contato.nome }}
+			</span>
+			<span  v-else>
+			{{ key + " : " + contato.nome }}
+			</span>
+		</li>
+	</ul>
+</div>
+
+</body>
+</html>

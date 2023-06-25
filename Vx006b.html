@@ -1,7 +1,7 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<title>Vx006</title>
+	<title>V006b</title>
+	<meta charset="utf-8">
 	<style>
     #app {
       display: inline-block;
@@ -13,21 +13,22 @@
 	<script src="vue334.js"></script>
 
 	<script>
+	
 	  const app = Vue.createApp({
 		data() {
 			return {
-				contatos:[
-					{nome: 'Abelardo'},
-					{nome: 'Carlos'},
-					{nome: 'Naum'},
-					{nome: 'Zélia'}
-					]
+					contatos:[
+						{nome: 'Abelardo'},
+						{nome: 'Carlos'},
+						{nome: 'Naum'},
+						{nome: 'Zélia'}
+						]
+					}
 				}
+			})
+		function init(){	  
+			app.mount('#app')
 			}
-		})
-function init(){	  
-	app.mount('#app')
-	}
 	</script>
 </head>
 <body onload="init();">
@@ -38,8 +39,8 @@ function init(){
 
 <div id="app">
 	<ul>
-		<li v-for="contato in contatos">
-			{{ contato.nome }}
+		<li v-for="(contato, key) in contatos">
+			{{ key + " : " + contato.nome }}
 		</li>
 	</ul>
 </div>
