@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vx007d</title>
+  <meta charset="utf-8">
+  <style>
+    #app {
+      display: inline-block;
+      font-family: Heebo;
+      font-size: 24px;
+      padding: 14px;
+    }
+	BUTTON {
+	  font-family: Heebo;
+	  font-size: 22px;		
+		}
+  </style>
+<script src="vue334.js"></script>
+<script>
+  const app = Vue.createApp({
+	data() {
+		return {
+			a: ( 0 === 0 ),
+			b: true,
+			message: "Usando exibição condicional"
+			}
+		},
+	methods: {
+		onclick() {
+				this.a = !this.a
+			},
+		}
+  })
+  function init(){
+	app.mount('#app');
+	}
+</script>
+</head>
+<body onload="init();">
+
+<h1>Exibição condicional - toggle switch</h1>
+
+<div id="app">
+	{{ message }}
+	<p v-if="a">Mensagem caso "a" verdadeiro.</p>
+	<p v-else>Mensagem para o caso de "a" falso.</p>
+	
+	<button @click="onclick">Muda "a" para true/false</button>
+	a: {{ a }}
+	
+</div>
+
+
+
+</body>
+</html>
