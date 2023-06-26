@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vx008c</title>
+  <meta charset="utf-8">
+  <style>
+    #app {
+      display: inline-block;
+      padding: 14px;
+    }
+	H1 { color: crimson; }
+  </style>
+  <script src="vue334.js"></script>
+</head>
+<body>
+
+<h1>Vue 3 Example</h1>
+<p>template como parte do HTML.</p>
+
+<div id="app">
+	<h1 v-if="formPF">Cadastro de Pessoa Física</h1>
+	<h1 v-else>Cadastro de Pessoa Jurídica</h1>
+	<button @click="onclick">Muda PF/PJ</button><br>
+	<template v-if="formPF">
+		CPF:<input name="Cpf"><br>
+		RG:<input name="Rg"><br>
+		Nome:<input name="Nome"><br>
+	</template>
+	<template v-else>
+		CNPJ:<input name="Cnpj"><br>
+		Razão Social:<input name="RSoc"><br>
+	</template>
+	<template v-if="">
+		Cidade:<input name="Cidade"><br>
+		Bairro:<input name="Bairro"><br>
+	</template>
+</div>
+
+<script>
+const app = Vue.createApp({
+	data() {
+		return {
+			formPF: true 
+			}
+		},
+	methods: {
+		onclick() {
+				this.formPF = !this.formPF
+			}
+		}
+  })
+app.mount('#app')
+</script>
+
+</body>
+</html>
