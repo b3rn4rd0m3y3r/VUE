@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vx009b</title>
+  <meta charset="utf-8">
+  <style>
+    #app {
+      display: inline-block;
+      padding: 14px;
+    }
+	H1 { color: crimson; }
+  </style>
+  <script src="vue334.js"></script>
+</head>
+<body>
+
+<h1>Vue 3 Example</h1>
+<p>template como parte do HTML.</p>
+
+<div id="app">
+	<h1 v-show="formPF">Cadastro de Pessoa Física</h1>
+	<h1 v-show="!formPF">Cadastro de Pessoa Jurídica</h1>
+	<button @click="onclick" v-show="formPF">Muda para PJ</button>
+	<button @click="onclick" v-show="!formPF">Muda para PF</button>
+	<br>
+	<!-- NOVO -->
+	<template v-show="formPF">
+		<form name="frm1" method="post" action="addPF.php">
+	</template>
+	<template v-show="!formPF">
+		<form name="frm2" method="post" action="addPJ.php">
+	</template>
+			<div v-show="formPF">
+				CPF:<input name="Cpf" /><br>
+				RG:<input name="Rg" /><br>
+				Nome:<input name="Nome" /><br>
+			</div>
+			<div v-show="!formPF">
+				CNPJ:<input name="Cnpj" /><br>
+				Razão Social:<input name="RSoc" /><br>
+			</div>
+			<div>
+				Cidade:<input name="Cidade" /><br>
+				Bairro:<input name="Bairro" /><br>
+			</div>
+			<input type="submit" value="GRAVAR">
+
+	</form>
+</div>
+
+<script>
+const app = Vue.createApp({
+	data() {
+		return {
+			formPF: true,
+			formBoth: true
+			}
+		},
+	methods: {
+		onclick() {
+				this.formPF = !this.formPF
+			}
+		}
+  })
+app.mount('#app')
+</script>
+</body>
+</html>
