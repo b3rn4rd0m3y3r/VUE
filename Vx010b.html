@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vx010b</title>
+  <meta charset="utf-8">
+  <style>
+    #app {
+      display: inline-block;
+	  font-family: Heebo;
+      padding: 14px;
+    }
+	H1 { color: crimson; }
+  </style>
+  <script src="vue334.js"></script>
+  <script>
+		const app = Vue.createApp({
+			data() {
+				return {
+					cpf: '',
+					rg: '',
+					formPF: true,
+					formBoth: true
+					}
+				},
+			methods: {
+				onclick() {
+						this.formPF = !this.formPF
+					}
+				},
+			computed: {
+				pfOk: function() {
+					return this.cpf && this.rg && this.formPF;
+					}
+				}
+		  })
+		
+	function init(){
+		app.mount('#app')
+		}
+  </script>
+</head>
+<body onload="init();">
+
+<h1>Vue 3 Exemplo</h1>
+<p>Colocando a condição no submit do Formulário.</p>
+
+<div id="app">
+	<h1 v-if="formPF">Cadastro de Pessoa Física</h1>
+	<h1 v-else>Cadastro de Pessoa Jurídica</h1>
+	<button @click="onclick" v-if="formPF">Muda para PJ</button>
+	<button @click="onclick" v-else>Muda para PF</button>
+	<!-- Painel de Controle -->
+	<label>CONTROLE:</label>{{ cpf }} | {{ rg }} | {{ formPF }} <label>Condição:</label>{{ pfOk }}
+	<br>
+	<template v-if="formPF">
+		<form name="frm1" method="post" action="addPF.php">
+	</template>
+	<template v-else>
+		<form name="frm2" method="post" action="addPJ.php">
+	</template>
+			<!-- Introdução do v-model -->
+			<div v-if="formPF">
+				CPF:<input name="Cpf" v-model="cpf" /><br>
+				RG:<input name="Rg" v-model="rg" /><br>
+				Nome:<input name="Nome" /><br>
+			</div>
+			<div v-else>
+				CNPJ:<input name="Cnpj" /><br>
+				Razão Social:<input name="RSoc" /><br>
+			</div>
+			<div>
+				Cidade:<input name="Cidade" /><br>
+				Bairro:<input name="Bairro" /><br>
+			</div>
+			<input type="submit" v-if="pfOk" value="GRAVAR">
+	</form>
+</div>
+
+</body>
+</html>
