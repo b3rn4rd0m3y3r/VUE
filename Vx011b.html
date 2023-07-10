@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vx010c</title>
+  <meta charset="iso-8859-1">
+  <style>
+    #app {
+      display: inline-block;
+	  font-family: Heebo;
+      padding: 14px;
+    }
+	H1 { color: crimson; }
+  </style>
+  <script src="vue334.js"></script>
+  <script>
+	var prods = [];
+	const app = Vue.createApp({
+		data() {
+			return {
+				cod: '',
+				descri: '',
+				preco: '',
+				produtos: prods
+				}
+			},
+		methods: {
+			addProd() {
+				this.produtos.push({ cod: this.cod, descri: this.descri, preco: this.preco });
+				}
+			},
+		computed: {
+			frmOk: function() {
+				return this.cod && this.descri && this.preco;
+				},
+			}
+	  })
+		
+	function init(){
+		app.mount('#app')
+		}
+  </script>
+</head>
+<body onload="init();">
+
+<h1>Vue 3 Exemplo</h1>
+<p>Formulário de dados imediatos.</p>
+
+<div id="app">
+	<h1>Produtos</h1>
+	<!-- button @click="onclick" v-if="formPF">Muda para PJ</button>
+	<button @click="onclick" v-else>Muda para PF</button><br -->
+	<!-- Painel de Controle -->
+	<label>CONTROLE:</label>{{ cod }} | {{ descri }} | {{ preco }} <label>Condição:</label>{{ frmOk }}
+	<br>
+	<form name="frm1" @submit.prevent="addProd">
+		<!-- Introdução do v-model -->
+		<label>Código:<input name="Cod" v-model="cod" /><br>
+		<label>Descrição:<input name="Descri" v-model="descri" /><br>
+		<label>Preço:<input name="Preco" v-model="preco" /><br>
+		<input type="submit" v-if="frmOk" value="GRAVAR">
+	</form>
+	<p>&nbsp;</p>
+	<table>
+		<tr><th>Código</th><th>Descrição</th><th>Preço (R$)</th></tr>
+		<tr v-for="item in produtos" :key="item.cod"><td>{{ item.cod }}</td><td>{{ item.descri }}</td><td>{{ item.preco }}</td></tr>
+	</table>
+</div>
+
+</body>
+</html>
