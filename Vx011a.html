@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Vx011a</title>
-  <meta charset="iso-8859-1">
+  <meta charset="utf-8">
   <style>
     #app {
       display: inline-block;
@@ -43,20 +43,20 @@
 <body onload="init();">
 
 <h1>Vue 3 Exemplo</h1>
-<p>Formulário de dados imediatos.</p>
+<p>FormulÃ¡rio de dados imediatos.</p>
 
 <div id="app">
 	<h1>Produtos</h1>
 	<!-- button @click="onclick" v-if="formPF">Muda para PJ</button>
 	<button @click="onclick" v-else>Muda para PF</button><br -->
 	<!-- Painel de Controle -->
-	<label>CONTROLE:</label>{{ cod }} | {{ descri }} | {{ preco }} <label>Condição:</label>{{ frmOk }}
+	<label>CONTROLE:</label>{{ cod }} | {{ descri }} | {{ preco }} <label>CondiÃ§Ã£o:</label>{{ frmOk }}
 	<br>
 	<form name="frm1" @submit.prevent="addProd">
-		<!-- Introdução do v-model -->
-		<label>Código:<input name="Cod" v-model="cod" /><br>
-		<label>Descrição:<input name="Descri" v-model="descri" /><br>
-		<label>Preço:<input name="Preco" v-model="preco" /><br>
+		<!-- IntroduÃ§Ã£o do v-model -->
+		<label>CÃ³digo:<input name="Cod" v-model="cod" /><br>
+		<label>DescriÃ§Ã£o:<input name="Descri" v-model="descri" /><br>
+		<label>PreÃ§o:<input name="Preco" v-model="preco" /><br>
 		<input type="submit" v-if="frmOk" value="GRAVAR">
 	</form>
 	<ul>
