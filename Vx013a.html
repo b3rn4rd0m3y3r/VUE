@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vx013a</title>
+  <meta charset="iso-8859-1">
+  <style>
+	#app {
+		display: inline-block;
+		font-family: Heebo;
+		padding: 14px;
+		}
+	.fte16 {font-size: 20px;}
+	.fte18 {font-size: 24px;}
+	.vd {color: green;  }
+	.mr {color: maroon;  }
+	.neg { font-weight: bold; }
+	H1 { color: crimson; }
+	
+  </style>
+  <script src="vue334.js"></script>
+  <script>
+	var prods = [];
+	var vm = "";
+	const app = Vue.createApp({
+		data() {
+			return {
+				cod: '',
+				descri: '',
+				preco: '',
+				produtos: prods
+				}
+			},
+		methods: {
+			addProd() {
+				this.produtos.push({ cod: this.cod, descri: this.descri, preco: this.preco });
+				this.cod = '';
+				this.descri = '';
+				this.preco = '';
+				},
+			delProd(idx) {
+				this.produtos.splice(idx, 1);
+				},
+			edtProd(idx) {
+				this.cod = this.produtos[idx].cod;
+				this.descri = this.produtos[idx].descri;
+				this.preco = this.produtos[idx].preco;				
+				}
+			},
+		computed: {
+			frmOk: function() {
+				return this.cod && this.descri && this.preco;
+				},
+			temProd: function(){
+				return ( this.produtos.length > 0 );
+				}
+			}
+	  })
+		
+	function init(){
+		vm = app.mount('#app')
+		}
+  </script>
+</head>
+<body onload="init();">
+
+<h1>Vue 3 Exemplo</h1>
+<p>Formulário de dados imediatos. Edição.</p>
+
+<div id="app">
+	<h1>Produtos</h1>
+	<!-- button @click="onclick" v-if="formPF">Muda para PJ</button>
+	<button @click="onclick" v-else>Muda para PF</button><br -->
+	<!-- Painel de Controle -->
+	<label>CONTROLE:</label>{{ cod }} | {{ descri }} | {{ preco }} <label>Condição:</label>{{ frmOk }}
+	<br>
+	<form name="frm1" @submit.prevent="addProd">
+		<!-- Introdução do v-model -->
+		<label>Código:<input name="Cod" v-model="cod" /><br>
+		<label>Descrição:<input name="Descri" v-model="descri" /><br>
+		<label>Preço:<input name="Preco" v-model="preco" /><br>
+		<input type="submit" v-if="frmOk" value="GRAVAR">
+	</form>
+	<p>&nbsp;</p>
+	<table>
+		<tr v-if="temProd"><th>No.</th><th>Código</th><th>Descrição</th><th>Preço (R$)</th></tr>
+		<tr v-for="(item,k) in produtos" :key="item.cod">
+			<td>{{ k }}</td><td>{{ item.cod }}</td><td>{{ item.descri }}</td><td>{{ item.preco }}</td>
+			<td class="fte18 vd">&#128065;</td><td class="fte16" @click="edtProd(k)">&#9997;</td><td class="fte16 mr neg" @click="delProd(k)">&#128465;</td>
+		</tr>
+	</table>
+
+</div>
+
+</body>
+</html>
